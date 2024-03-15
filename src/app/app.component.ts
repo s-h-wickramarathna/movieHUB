@@ -7,18 +7,18 @@ import { NavBarComponent } from './component/nav-bar/nav-bar.component';
 import { HomeComponent } from './home/home.component';
 import { CardsComponent } from './component/cards/cards.component';
 import { FooterComponent } from './component/footer/footer.component';
+import { AuthComponent } from './auth/auth.component';
 
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
     CommonModule,
-     RouterOutlet,
-      NavBarComponent,
-      HomeComponent,
-      CardsComponent,
-      FooterComponent,
-    ],
+    RouterOutlet,
+    FooterComponent,
+    AuthComponent,
+    HomeComponent,
+  ],
 
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
