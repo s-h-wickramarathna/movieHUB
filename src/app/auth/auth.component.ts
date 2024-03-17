@@ -5,6 +5,7 @@ import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } 
 import { CommonModule } from '@angular/common';
 import { BrowserModule } from '@angular/platform-browser';
 import { Observable } from 'rxjs';
+import PasswordMatch from '../utils/PasswordMatch';
 
 @Component({
   selector: 'app-auth',
@@ -34,8 +35,14 @@ export class AuthComponent {
       signUpGender: ['', Validators.required],
       signUpPhoneNumber:['',[Validators.required,Validators.pattern('07[2467][0-9]{7}')]],
       signUpEmailAddress:['',[Validators.required,Validators.email]],
+      signUpPassword:['',Validators.required],
+      signUpConfirmPassword:['',Validators.required],
+      acceptTerms:['', Validators.requiredTrue]
+    },{
+      validators: [PasswordMatch.match('signUpPassword', 'signUpConfirmPassword')],
     });
   }
+
 
   get signupFormValidate(){
     return this.signUpForm.controls;
