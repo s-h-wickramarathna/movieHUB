@@ -18,7 +18,7 @@
   <div
     class="w-full m-5 sm:w-10/12 md:w-8/12 lg:w-6/12 xl:w-5/12 bg-white rounded-lg shadow-lg"
   >
-    <form class="m-5" hidden [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
+    <form class="m-5" [hidden]="!showAuthContent" [formGroup]="signUpForm" (ngSubmit)="onSignUp()">
       <div class="my-5 mb-8 text-center">
         <h5 class="font-sans font-bold text-2xl">User SignUp</h5>
       </div>
@@ -238,9 +238,14 @@
       >
         Submit
       </button>
+      <div class="text-right">
+        <small>
+            <a href="#" class="text-blue-700 no-underline hover:underline" (click)="onFormToggle()">I already have an account</a>
+        </small>
+      </div>
     </form>
 
-    <form class="m-5" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+    <form [hidden]="showAuthContent" class="m-5" [formGroup]="loginForm" (ngSubmit)="onLogin()">
       <div class="my-5 mb-8 text-center">
         <h5 class="font-sans font-bold text-2xl">User SignIn</h5>
       </div>
@@ -313,6 +318,11 @@
       >
         Submit
       </button>
+      <div class="text-right">
+        <small>
+            <a href="#" class="text-blue-700 no-underline hover:underline" (click)="onFormToggle()">Create new account</a>
+        </small>
+      </div>
     </form>
   </div>
 </div>

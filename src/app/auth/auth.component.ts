@@ -39,6 +39,7 @@ export class AuthComponent implements OnInit {
 
   signUpFormSibmitted = false;
   loginFormSibmitted = false;
+  showAuthContent = false;
   constructor(private routes: Router, private formbuider: FormBuilder) { }
 
   ngOnInit(): void {
@@ -91,6 +92,15 @@ export class AuthComponent implements OnInit {
     console.log(JSON.stringify(this.loginForm.value));
   }
 
+  onFormToggle(){
+if(this.showAuthContent){
+  this.loginForm.reset;
+  this.showAuthContent = false;
+}else{
+  this.signUpForm.reset;
+  this.showAuthContent = true;
+}
+  }
 
   login(): void {
     this.routes.navigate(['/home']);
