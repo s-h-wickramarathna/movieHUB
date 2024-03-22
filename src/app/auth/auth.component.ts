@@ -43,7 +43,7 @@ export class AuthComponent implements OnInit {
   constructor(private routes: Router, private formbuider: FormBuilder) { }
 
   ngOnInit(): void {
-    
+
     this.signUpForm = this.formbuider.group({
       signUpFirstname: ['', Validators.required],
       signUpLastname: ['', Validators.required],
@@ -58,7 +58,7 @@ export class AuthComponent implements OnInit {
     });
 
     this.loginForm = this.formbuider.group({
-      signInEmail: ['', [Validators.required,Validators.email]],
+      signInEmail: ['', [Validators.required, Validators.email]],
       signInPassword: ['', Validators.required],
     });
   }
@@ -78,31 +78,30 @@ export class AuthComponent implements OnInit {
     console.log(JSON.stringify(this.signUpForm.value, null, 2));
   }
 
-  get loginFormValidate(){
+  get loginFormValidate() {
     return this.loginForm.controls;
   }
 
-  onLogin(): void{
+  onLogin(): void {
     this.loginFormSibmitted = true;
 
-    if(this.loginForm.invalid){
+    if (this.loginForm.invalid) {
       return;
     }
 
     console.log(JSON.stringify(this.loginForm.value));
-  }
-
-  onFormToggle(){
-if(this.showAuthContent){
-  this.loginForm.reset;
-  this.showAuthContent = false;
-}else{
-  this.signUpForm.reset;
-  this.showAuthContent = true;
-}
-  }
-
-  login(): void {
     this.routes.navigate(['/home']);
   }
+
+  onFormToggle() {
+    if (this.showAuthContent) {
+      this.loginForm.reset;
+      this.showAuthContent = false;
+    } else {
+      this.signUpForm.reset;
+      this.showAuthContent = true;
+    }
+  }
+
+
 }
