@@ -1,6 +1,6 @@
 <app-nav-bar></app-nav-bar>
-<div class="w-full h-screen">
-  <div class="pt-10 ml-24">
+<div class="w-full overflow-hidden">
+  <div class="pt-10 ml-2 lg:ml-24">
     <!-- Breadcrumb -->
     <div class="flex" aria-label="Breadcrumb">
       <ol
@@ -75,7 +75,7 @@
       </ol>
     </div>
 
-    <div class="w-full flex items-center mt-3">
+    <div class="w-full flex items-center mt-3 mb-5">
       <div class="w-11/12 bg-yellow-400 rounded-lg">
         <p class="my-2 ml-6 font-semibold">
           If you get any error message when trying to stream, please Refresh the
@@ -85,8 +85,100 @@
     </div>
 
     <!-- video Player -->
-    
-  </div>
-</div>
 
-<app-footer></app-footer>
+    <iframe
+      class="w-11/12"
+      height="600px"
+      src="https://www.youtube-nocookie.com/embed/EYmbPYWlyVk?si=wo92kv0a9K6YjWAe"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <div class="ml-2 lg:ml-24 mt-10 flex flex-col lg:flex-row">
+    <div class="hidden xl:block">
+      <img
+        width="250px"
+        src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp"
+      />
+    </div>
+
+    <div class="lg:ml-5">
+      <div>
+        <p class="text-4xl">Fast X</p>
+      </div>
+      <div class="mt-2">
+        <button
+          type="button"
+          class="py-2.5 px-5 border border-gray-700 font-bold me-2 mb-2 text-sm font-medium text-gray-900 focus:outline-none bg-white rounded-lg border border-gray-200 hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-4 focus:ring-gray-100 dark:focus:ring-gray-700 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white dark:hover:bg-gray-700"
+        >
+          HD
+        </button>
+      </div>
+
+      <div class="mt-3">
+        <p class="font-semibold">
+          Tenth and final installment of the Fast and Furious franchise.
+        </p>
+      </div>
+
+      <div class="flex flex-col lg:flex-row w-full">
+        <div class="w-full lg:w-5/12 m-2">
+          <div class="mt-3">
+            <p><b class="font-semibold">Released: </b>2023-05-17</p>
+          </div>
+          <div class="mt-3">
+            <p><b class="font-semibold">Genre: </b> Action, Crime, Thriller</p>
+          </div>
+          <div class="mt-3">
+            <p>
+              <b class="font-semibold">Casts: </b> Vin Diesel, Gal Gadot,
+              Ludacris, Daniela Melchior, Scott Eastwood
+            </p>
+          </div>
+        </div>
+        <div class="w-full lg:w-5/12 m-2">
+          <div class="mt-3">
+            <p><b class="font-semibold">Duration: </b>142 min</p>
+          </div>
+          <div class="mt-3">
+            <p>
+              <b class="font-semibold">Country: </b> United States of America,
+              Japan
+            </p>
+          </div>
+          <div class="mt-3">
+            <p>
+              <b class="font-semibold">Production: </b> Universal Pictures,
+              Original Film, One Race, Perfect Storm Entertainment, Dentsu, RK
+              films
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="w-full lg:w-5/12 flex justify-center items-start">
+      <div class="relative inline-flex group w-80 mt-5">
+        <div
+          class="absolute w-full transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
+        ></div>
+        <a
+          href="#"
+          title="Get quote now"
+          class="relative w-full inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-900"
+          role="button"
+          >+ Add Favourite
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <div class="w-full p-5">
+    <hr class="h-px my-8 bg-gray-900 border-0 dark:bg-gray-700" />
+  </div>
+
+  <app-footer></app-footer>
+</div>
