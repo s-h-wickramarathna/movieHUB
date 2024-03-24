@@ -1,6 +1,7 @@
 <app-nav-bar></app-nav-bar>
-<div class="w-full overflow-hidden">
-  <div class="pt-10 ml-2 lg:ml-24">
+<div class="w-full overflow-hidden"></div>
+<div class="ml-10 lg:ml-32">
+  <div class="pt-10">
     <!-- Breadcrumb -->
     <div class="flex" aria-label="Breadcrumb">
       <ol
@@ -98,10 +99,11 @@
     ></iframe>
   </div>
 
-  <div class="ml-2 lg:ml-24 mt-10 flex flex-col lg:flex-row">
+  <div class=" mt-10 flex flex-col lg:flex-row">
     <div class="hidden xl:block">
       <img
-        width="250px"
+      class="rounded-lg shadow"
+        width="350px"
         src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp"
       />
     </div>
@@ -160,10 +162,10 @@
         </div>
       </div>
     </div>
-    <div class="w-full lg:w-5/12 flex justify-center items-start">
-      <div class="relative inline-flex group w-80 mt-5">
+    <div class="lg:w-5/12 flex items-start">
+      <div class="relative inline-flex w-64 group mt-5">
         <div
-          class="absolute w-full transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
+          class="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#44BCFF] via-[#FF44EC] to-[#FF675E] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"
         ></div>
         <a
           href="#"
@@ -175,10 +177,33 @@
       </div>
     </div>
   </div>
-
-  <div class="w-full p-5">
-    <hr class="h-px my-8 bg-gray-900 border-0 dark:bg-gray-700" />
+  <div class="w-2/6">
+    <hr class="h-px my-12 bg-gray-900 border-0 dark:bg-gray-700" />
   </div>
 
-  <app-footer></app-footer>
+  <div class="w-full mb-5">
+    <div class="mb-8">
+        <p class="text-3xl font-semibold">You may also like</p>
+    </div>
+
+    <div class="grid grid-cols-5 gap-6">
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+        <app-cards></app-cards>
+    </div>
+
+  </div>
 </div>
+
