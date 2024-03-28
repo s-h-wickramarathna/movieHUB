@@ -1,13 +1,48 @@
-
 <section>
-    <div class="w-3/12 h-screen bg-blue-500 duration-1000 -left-full fixed" id="SidBarMain"></div>
-    <div class="w-full flex justify-end fixed top-0">
-        <i class="bi bi-list text-4xl m-3 -right-14" id="menuIconBlock" (click)="sideMenuBlock()"></i>
-        <i class="bi bi-x text-4xl m-3 -right-14 hidden" id="menuIconHidden" (click)="sideMenuHidden()"></i>
-      </div> 
-      
+  <div
+    class="w-3/12 h-screen bg-blue-500 duration-1000 -left-full fixed z-50"
+    id="SidBarMain"
+  ></div>
+  <div class="w-full flex fixed top-0 bg-slate-600">
+    <div class="ml-5 my-3 w-6/12">
+      <a
+        href="https://flowbite.com/"
+        class="flex items-center space-x-3 rtl:space-x-reverse"
+      >
+        <img
+          src="https://flowbite.com/docs/images/logo.svg"
+          class="h-8"
+          alt="Flowbite Logo"
+        />
+        <span
+          class="self-center text-2xl font-semibold whitespace-nowrap text-white"
+          >MoviesHUB</span
+        >
+      </a>
+    </div>
+    <div class="w-6/12 flex justify-end pr-5">
+      <i
+        class="bi bi-list text-4xl m-3 -right-14"
+        id="menuIconBlock"
+        (click)="sideMenuBlock()"
+      ></i>
+      <i
+        class="bi bi-x text-4xl m-3 -right-14 hidden"
+        id="menuIconHidden"
+        (click)="sideMenuHidden()"
+      ></i>
+    </div>
+  </div>
 
-    <div class="w-full h-screen"></div>
+  <div class="w-full h-screen">
+    <div
+      class="w-full h-screen bg-yellow-500 flex justify-center items-center"
+      id="mainPanel"
+    ></div>
+
+    <div
+      class="w-full h-screen bg-red-800 flex justify-center items-center"
+      id="mainPanel"
+    ></div>
+  </div>
 </section>
-
-
