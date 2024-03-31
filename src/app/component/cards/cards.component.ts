@@ -9,6 +9,6 @@ import { Component, Input, input } from '@angular/core';
 })
 export class CardsComponent {
   @Input() Width: string = "w-64";
-  @Input() Height: string = "365";
+  @Input() Height: string= "365";
 
 }
