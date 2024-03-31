@@ -1,48 +1,79 @@
 <section>
-  <div
-    class="w-3/12 h-screen bg-blue-500 duration-1000 -left-full fixed z-50"
-    id="SidBarMain"
-  ></div>
-  <div class="w-full flex fixed top-0 bg-slate-600">
-    <div class="ml-5 my-3 w-6/12">
-      <a
-        href="https://flowbite.com/"
-        class="flex items-center space-x-3 rtl:space-x-reverse"
-      >
-        <img
-          src="https://flowbite.com/docs/images/logo.svg"
-          class="h-8"
-          alt="Flowbite Logo"
-        />
-        <span
-          class="self-center text-2xl font-semibold whitespace-nowrap text-white"
-          >MoviesHUB</span
-        >
-      </a>
+    <div class="w-3/12 h-screen bg-blue-500 duration-1000 -left-full fixed z-50" id="SidBarMain"></div>
+    <div class="w-full flex fixed top-0 bg-gray-200 z-50">
+        <div class="ml-5 my-3 w-6/12">
+            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
+                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
+                <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">MoviesHUB</span>
+            </a>
+        </div>
+        <div class="w-6/12 flex justify-end pr-5">
+            <i class="bi bi-list text-4xl m-3 -right-14 cursor-pointer" id="menuIconBlock" (click)="sideMenuBlock()"></i>
+            <i class="bi bi-x text-4xl m-3 -right-14 hidden cursor-pointer" id="menuIconHidden" (click)="sideMenuHidden()"></i>
+        </div>
     </div>
-    <div class="w-6/12 flex justify-end pr-5">
-      <i
-        class="bi bi-list text-4xl m-3 -right-14"
-        id="menuIconBlock"
-        (click)="sideMenuBlock()"
-      ></i>
-      <i
-        class="bi bi-x text-4xl m-3 -right-14 hidden"
-        id="menuIconHidden"
-        (click)="sideMenuHidden()"
-      ></i>
+
+    <div class="w-full pt-32 z-20">
+        <div class="w-full flex items-baseline">
+            <h1 class="text-2xl font-semibold ml-16 mr-5">Most Populer</h1>
+
+
+            <div class="inline-flex rounded-md shadow-sm">
+                <button href="#" aria-current="page"
+                    class="px-4 py-2 text-sm font-medium text-white bg-black border border-gray-200 rounded-l-md">
+                    Movies
+                </button>
+                <button
+                    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-md">
+                    Free
+                </button>
+            </div>
+
+        </div>
+        <!-- Card Slider -->
+        <div class="w-full flex justify-center items-center" id="mainPanel">
+            <div class="w-full mx-10 overflow-hidden">
+                <app-card-slider></app-card-slider>
+            </div>
+        </div>
+        <!-- Card Slider -->
+
     </div>
-  </div>
 
-  <div class="w-full h-screen">
-    <div
-      class="w-full h-screen bg-yellow-500 flex justify-center items-center"
-      id="mainPanel"
-    ></div>
+    <div class="w-full pt-20 mb-10">
+        <div class="w-full flex items-baseline">
+            <h1 class="text-2xl font-semibold ml-16 mr-5">All Movies</h1>
 
-    <div
-      class="w-full h-screen bg-red-800 flex justify-center items-center"
-      id="mainPanel"
-    ></div>
-  </div>
+
+            <div class="inline-flex rounded-md shadow-sm">
+                <button href="#" aria-current="page"
+                    class="px-4 py-2 text-sm font-medium text-white bg-black border border-gray-200 rounded-l-md">
+                    Movies
+                </button>
+                <button
+                    class="px-4 py-2 text-sm font-medium text-gray-900 bg-white border border-gray-200 rounded-e-md">
+                    Free
+                </button>
+            </div>
+
+        </div>
+
+        <div class="w-full flex flex-wrap gap-3 justify-center mt-24">
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300"/>
+
+        </div>
+
+
+    </div>
 </section>

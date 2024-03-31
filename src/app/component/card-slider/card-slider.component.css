@@ -1,0 +1,14 @@
+
+/* card-slider.component.scss */
+
+.slider-container {
+    overflow-x: hidden;
+  }
+  
+  .slider {
+    transition: transform 0.5s ease-in-out;
+  }
+  
+  .card {
+    margin-right: 10px;
+  }

@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NavBarComponent } from '../component/nav-bar/nav-bar.component';
 import { CardsComponent } from '../component/cards/cards.component';
+import { CardSliderComponent } from '../component/card-slider/card-slider.component';
 
 @Component({
   selector: 'app-all-films',
@@ -10,6 +11,7 @@ import { CardsComponent } from '../component/cards/cards.component';
     CommonModule,
     NavBarComponent,
     CardsComponent,
+    CardSliderComponent,
 
   ],
   templateUrl: './all-films.component.html',
