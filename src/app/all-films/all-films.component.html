@@ -1,5 +1,73 @@
 <section>
-    <div class="w-3/12 h-screen bg-blue-500 duration-1000 -left-full fixed z-50" id="SidBarMain"></div>
+    <div class="w-8/12 sm:w-6/12 md:w-4/12 lg:w-3/12 shadow-xl rounded-r-lg mt-20 h-auto bg-gray-200 duration-1000 -left-full z-50 fixed overflow-auto" id="SidBarMain">
+        <div class="w-full mt-6 p-4">
+            <span class="text-lg font-bold">Filter Movies</span>
+            <hr class="border-2 border-gray-500 mt-2">
+        </div>
+        <div class="w-full mt-4 p-4">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search By
+                Name</label>
+            <div class="relative w-full mt-2">
+                <div class="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none">
+                    <svg class="w-4 h-4 text-gray-500 dark:text-gray-400" aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 20">
+                        <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M3 5v10M3 5a2 2 0 1 0 0-4 2 2 0 0 0 0 4Zm0 10a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm12 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4Zm0 0V6a3 3 0 0 0-3-3H9m1.5-2-2 2 2 2" />
+                    </svg>
+                </div>
+                <input type="text" id="simple-search"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="Search branch name..." required />
+            </div>
+        </div>
+        <div class="w-full mt-3 p-4">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search By
+                Year</label>
+            <select id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a Year</option>
+                <option value="">2024</option>
+                <option value="">2025</option>
+                <option value="">2026</option>
+                <option value="">2027</option>
+            </select>
+        </div>
+        <div class="w-full mt-3 p-4">
+            <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Search By
+                Country</label>
+            <select id="countries"
+                class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                <option selected>Choose a country</option>
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+                <option value="FR">France</option>
+                <option value="DE">Germany</option>
+            </select>
+        </div>
+        <div class="w-full mt-3 p-4">
+            <label for="countries" class="block mb-1 text-sm font-medium text-gray-900 dark:text-white">Search By
+                Publish Date:</label>
+            <div class="flex gap-x-10">
+                <div class="flex items-center ps-4 rounded">
+                    <input id="bordered-radio-1" checked type="radio" value="" name="bordered-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="bordered-radio-1"
+                        class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">ASC</label>
+                </div>
+                <div class="flex items-center ps-4 rounded">
+                    <input id="bordered-radio-2" type="radio" value="" name="bordered-radio"
+                        class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600">
+                    <label for="bordered-radio-2"
+                        class="w-full py-4 ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">DESC</label>
+                </div>
+            </div>
+        </div>
+        <div class="w-full p-4 flex justify-end">
+            <button type="button" class="text-blue-700 hover:text-white border border-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-blue-500 dark:text-blue-500 dark:hover:text-white dark:hover:bg-blue-500 dark:focus:ring-blue-800">Cancel</button>
+            <button type="button" class="text-green-700 hover:text-white border border-green-700 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-green-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-green-500 dark:text-green-500 dark:hover:text-white dark:hover:bg-green-600 dark:focus:ring-green-800">Filter</button>
+        </div>
+        
+    </div>
     <div class="w-full flex fixed top-0 bg-gray-200 z-50">
         <div class="ml-5 my-3 w-6/12">
             <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
@@ -8,8 +76,10 @@
             </a>
         </div>
         <div class="w-6/12 flex justify-end pr-5">
-            <i class="bi bi-list text-4xl m-3 -right-14 cursor-pointer" id="menuIconBlock" (click)="sideMenuBlock()"></i>
-            <i class="bi bi-x text-4xl m-3 -right-14 hidden cursor-pointer" id="menuIconHidden" (click)="sideMenuHidden()"></i>
+            <i class="bi bi-list text-4xl m-3 -right-14 cursor-pointer" id="menuIconBlock"
+                (click)="sideMenuBlock()"></i>
+            <i class="bi bi-x text-4xl m-3 -right-14 hidden cursor-pointer" id="menuIconHidden"
+                (click)="sideMenuHidden()"></i>
         </div>
     </div>
 
@@ -34,18 +104,18 @@
         <div class="w-full flex justify-center items-center" id="mainPanel">
             <div class="w-full mx-10 overflow-hidden">
                 <app-card-slider>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
-                    <app-cards/>
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
+                    <app-cards />
                 </app-card-slider>
             </div>
         </div>
@@ -72,18 +142,18 @@
         </div>
 
         <div class="w-full flex flex-wrap gap-3 justify-center mt-16">
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
-            <app-cards Width="w-52" Height="300"/>
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
+            <app-cards Width="w-52" Height="300" />
 
         </div>
 
