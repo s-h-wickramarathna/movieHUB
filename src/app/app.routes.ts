@@ -7,6 +7,7 @@ import { AdminHomeComponent } from './admin-home/admin-home.component';
 import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashboard.component';
 import { AdminManageUsersComponent } from './component/admin-manage-users/admin-manage-users.component';
 import { AdminManageMoviesComponent } from './component/admin-manage-movies/admin-manage-movies.component';
+import { AdminUpdateFilmComponent } from './component/admin-update-film/admin-update-film.component';
 
 export const routes: Routes = [
   { path: '', component: AuthComponent, pathMatch: 'full' },
@@ -19,6 +20,7 @@ export const routes: Routes = [
       { path: 'dashboard', component: AdminDashboardComponent },
       { path: 'manage-Users', component: AdminManageUsersComponent },
       { path: 'manage-Films', component: AdminManageMoviesComponent },
+      { path: 'manage-Films/info', component: AdminUpdateFilmComponent },
     ]
   },
 ];
