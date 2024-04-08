@@ -4,58 +4,56 @@ import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angula
 import { first } from 'rxjs';
 
 @Component({
-  selector: 'app-admin-update-film',
+  selector: 'app-admin-add-film',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  templateUrl: './admin-update-film.component.html',
-  styleUrl: './admin-update-film.component.css'
+  templateUrl: './admin-add-film.component.html',
+  styleUrl: './admin-add-film.component.css'
 })
+export class AdminAddFilmComponent {
 
-export class AdminUpdateFilmComponent {
-
-  isupdateFilmSubmited: boolean = false;
-  currentImgURL: string = "https://images.justwatch.com/poster/305436330/s166/fast-x.webp";
+  isAddFilmSubmited: boolean = false;
+  currentDate: Date = new Date();
+  currentImgURL: string = "../../../assets/images/add-image.png"
   imageUrl: string | ArrayBuffer | null = this.currentImgURL;
   selectedFile: File | null = null;
 
 constructor(private fb: FormBuilder){}
 
 
-updateFilmForm: FormGroup = this.fb.group({
-  updateMovie_img:[''],
-  updateMovie_name:['', [Validators.required]],
-  updateMovie_desc:['', [Validators.required]],
-  updateMovie_duration:['', [Validators.required]],
-  updateMovie_released:['', Validators.required],
-  updateMovie_countries:['', [Validators.required]],
-  updateMovie_cast:['', [Validators.required]],
-  updateMovie_Genre:['', [Validators.required]],
-  updateMovie_Production:['', [Validators.required]],
+addFilmForm: FormGroup = this.fb.group({
+  addMovie_img:['', Validators.required],
+  addMovie_name:['', [Validators.required]],
+  addMovie_desc:['', [Validators.required]],
+  addMovie_duration:['', [Validators.required]],
+  addMovie_released:['', Validators.required],
+  addMovie_countries:['', [Validators.required]],
+  addMovie_cast:['', [Validators.required]],
+  addMovie_Genre:['', [Validators.required]],
+  addMovie_Production:['', [Validators.required]],
 })
 
-get updateFilmFormValidate(){
-  return this.updateFilmForm.controls;
+get addFilmFormValidate(){
+  return this.addFilmForm.controls;
 }
 
-onupdateFilmSubmit(): void{
-  this.isupdateFilmSubmited = true;
+onAddFilmSubmit(): void{
+  this.isAddFilmSubmited = true;
 
-  if (this.updateFilmForm.invalid) {
+  if (this.addFilmForm.invalid) {
     return;
 
   }else{
-return console.log(JSON.stringify(this.updateFilmForm.value, null, 2));
+return console.log(JSON.stringify(this.addFilmForm.value, null, 2));
   }
 }
 
 onResetFilmForms(){
-  this.updateFilmForm.reset({first: 1});
-  this.isupdateFilmSubmited = false;
-
-  // Reset image URL
+  this.addFilmForm.reset({first: 1});
+  this.isAddFilmSubmited = false;
   this.imageUrl = this.currentImgURL;
 }
 
@@ -81,7 +79,7 @@ onFileSelected(event: any): void {
 //       .subscribe(
 //         (response) => {
 //           console.log('Image uploaded successfully:', response);
-//           // updateitional handling if needed
+//           // Additional handling if needed
 //         },
 //         (error) => {
 //           console.error('Error uploading image:', error);
@@ -92,4 +90,5 @@ onFileSelected(event: any): void {
 //     console.error('No image selected.');
 //   }
 // }
+
 }

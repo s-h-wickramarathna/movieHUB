@@ -2,11 +2,13 @@
 
     <div class="w-full h-auto flex justify-center items-center">
         <div class="w-full xl:w-8/12 shadow-xl">
-            <form [formGroup]="updateFilmForm" (ngSubmit)="onupdateFilmSubmit()">
+            <form [formGroup]="addFilmForm" (ngSubmit)="onAddFilmSubmit()">
                 <div class="flex flex-col xl:flex-row justify-center p-3">
                     <!-- file Chooser -->
                     <div class="w-full xl:w-6/12 flex justify-center">
-                        <div class="overflow-hidden relative flex justify-start items-center border">
+                        <div 
+                        [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_img'].errors}"
+                        class="overflow-hidden relative flex justify-start items-center border">
                             <div
                                 class="w-80 h-full flex justify-start absolute bg-black opacity-0 hover:opacity-80 duration-200">
                                 <div class="flex items-center justify-center w-full">
@@ -20,7 +22,7 @@
                                                     d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2" />
                                             </svg>
                                         </div>
-                                        <input  id="dropzone-file" (change)="onFileSelected($event)" formControlName="updateMovie_img" type="file" accept="image/*" class="hidden" />
+                                        <input  id="dropzone-file" (change)="onFileSelected($event)" formControlName="addMovie_img" type="file" accept="image/*" class="hidden" />
                                     </label>
                                 </div>
                             </div>
@@ -32,7 +34,7 @@
                         <div class="w-full flex mb-5">
 
                             <div class="flex-grow">
-                                <p class="text-xl font-semibold text-gray-700">Update Movie Informations</p>
+                                <p class="text-xl font-semibold text-gray-700">Add New Movie</p>
                             </div>
                             <div class="flex-grow flex justify-end">
                                 <label class="inline-flex items-center mb-5 cursor-pointer">
@@ -47,12 +49,12 @@
                         <div class=" mt-4">
                             <label for="first_name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Movie Name</label>
-                            <input type="text" formControlName="updateMovie_name"
-                                [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_name'].errors}"
+                            <input type="text" formControlName="addMovie_name"
+                                [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_name'].errors}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="" required />
-                            @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_name'].errors){
-                            @if (updateFilmFormValidate['updateMovie_name'].errors['required']) {
+                            @if(isAddFilmSubmited && addFilmFormValidate['addMovie_name'].errors){
+                            @if (addFilmFormValidate['addMovie_name'].errors['required']) {
                             <small class="ml-3 text-red-600">Movie Name Is Required </small>
                             }
                             }
@@ -60,12 +62,12 @@
                         <div class="mt-4">
                             <label for="message"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Description</label>
-                            <textarea rows="4" formControlName="updateMovie_desc"
-                                [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_desc'].errors}"
+                            <textarea rows="4" formControlName="addMovie_desc"
+                                [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_desc'].errors}"
                                 class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="Write your thoughts here..."></textarea>
-                            @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_desc'].errors){
-                            @if (updateFilmFormValidate['updateMovie_desc'].errors['required']) {
+                            @if(isAddFilmSubmited && addFilmFormValidate['addMovie_desc'].errors){
+                            @if (addFilmFormValidate['addMovie_desc'].errors['required']) {
                             <small class="ml-3 text-red-600">Movie Description Is Required </small>
                             }
                             }
@@ -74,12 +76,12 @@
                             <div class="mt-4 flex-grow pr-2">
                                 <label for="first_name"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Duration</label>
-                                <input type="text" formControlName="updateMovie_duration"
-                                    [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_duration'].errors}"
+                                <input type="text" formControlName="addMovie_duration"
+                                    [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_duration'].errors}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="0 mins" required />
-                                @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_duration'].errors){
-                                @if (updateFilmFormValidate['updateMovie_duration'].errors['required']) {
+                                @if(isAddFilmSubmited && addFilmFormValidate['addMovie_duration'].errors){
+                                @if (addFilmFormValidate['addMovie_duration'].errors['required']) {
                                 <small class="ml-3 text-red-600">Movie Description Is Required </small>
                                 }
                                 }
@@ -96,13 +98,13 @@
                                                 d="M20 4a2 2 0 0 0-2-2h-2V1a1 1 0 0 0-2 0v1h-3V1a1 1 0 0 0-2 0v1H6V1a1 1 0 0 0-2 0v1H2a2 2 0 0 0-2 2v2h20V4ZM0 18a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V8H0v10Zm5-8h10a1 1 0 0 1 0 2H5a1 1 0 0 1 0-2Z" />
                                         </svg>
                                     </div>
-                                    <input type="date" formControlName="updateMovie_released"
-                                        [ngClass]="{'border-red-600': isupdateFilmSubmited && updateFilmFormValidate['updateMovie_released'].errors}"
+                                    <input type="date" formControlName="addMovie_released"
+                                        [ngClass]="{'border-red-600': isAddFilmSubmited && addFilmFormValidate['addMovie_released'].errors}"
                                         class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                         placeholder="Select date" />
 
-                                    @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_released'].errors){
-                                    @if (updateFilmFormValidate['updateMovie_released'].errors['required']) {
+                                    @if(isAddFilmSubmited && addFilmFormValidate['addMovie_released'].errors){
+                                    @if (addFilmFormValidate['addMovie_released'].errors['required']) {
                                     <small class="ml-3 text-red-600">Movie Released Date Is Required </small>
                                     }
                                     }
@@ -114,12 +116,12 @@
                             <div class="mt-4 flex-grow pr-2">
                                 <label for="first_name"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Countries</label>
-                                <input type="text" formControlName="updateMovie_countries"
-                                    [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_countries'].errors}"
+                                <input type="text" formControlName="addMovie_countries"
+                                    [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_countries'].errors}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="" required />
-                                @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_countries'].errors){
-                                @if (updateFilmFormValidate['updateMovie_countries'].errors['required']) {
+                                @if(isAddFilmSubmited && addFilmFormValidate['addMovie_countries'].errors){
+                                @if (addFilmFormValidate['addMovie_countries'].errors['required']) {
                                 <small class="ml-3 text-red-600">Movie Countries Is Required </small>
                                 }
                                 }
@@ -127,12 +129,12 @@
                             <div class="mt-4 flex-grow pl-2">
                                 <label for="first_name"
                                     class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Genre</label>
-                                <input type="text" formControlName="updateMovie_Genre"
-                                    [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_Genre'].errors}"
+                                <input type="text" formControlName="addMovie_Genre"
+                                    [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_Genre'].errors}"
                                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                     placeholder="" required />
-                                @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_Genre'].errors){
-                                @if (updateFilmFormValidate['updateMovie_Genre'].errors['required']) {
+                                @if(isAddFilmSubmited && addFilmFormValidate['addMovie_Genre'].errors){
+                                @if (addFilmFormValidate['addMovie_Genre'].errors['required']) {
                                 <small class="ml-3 text-red-600">Movie Genre Is Required </small>
                                 }
                                 }
@@ -148,12 +150,12 @@
                         <div class="flex-grow pr-2">
                             <label for="first_name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Casts:</label>
-                            <input type="text" formControlName="updateMovie_cast"
-                                [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_cast'].errors}"
+                            <input type="text" formControlName="addMovie_cast"
+                                [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_cast'].errors}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="" required />
-                            @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_cast'].errors){
-                            @if (updateFilmFormValidate['updateMovie_cast'].errors['required']) {
+                            @if(isAddFilmSubmited && addFilmFormValidate['addMovie_cast'].errors){
+                            @if (addFilmFormValidate['addMovie_cast'].errors['required']) {
                             <small class="ml-3 text-red-600">Movie Cast Is Required </small>
                             }
                             }
@@ -161,12 +163,12 @@
                         <div class="flex-grow pl-2">
                             <label for="first_name"
                                 class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Production:</label>
-                            <input type="text" formControlName="updateMovie_Production"
-                                [ngClass]="{'border-red-600':isupdateFilmSubmited && updateFilmFormValidate['updateMovie_Production'].errors}"
+                            <input type="text" formControlName="addMovie_Production"
+                                [ngClass]="{'border-red-600':isAddFilmSubmited && addFilmFormValidate['addMovie_Production'].errors}"
                                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-xl focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                                 placeholder="" required />
-                            @if(isupdateFilmSubmited && updateFilmFormValidate['updateMovie_Production'].errors){
-                            @if (updateFilmFormValidate['updateMovie_Production'].errors['required']) {
+                            @if(isAddFilmSubmited && addFilmFormValidate['addMovie_Production'].errors){
+                            @if (addFilmFormValidate['addMovie_Production'].errors['required']) {
                             <small class="ml-3 text-red-600">Movie Released Date Is Required </small>
                             }
                             }
@@ -174,8 +176,9 @@
                     </div>
                     <div class="w-full flex justify-end mt-5 mb-2">
                         <button type="submit"
-                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">Update</button>
-                        <button type="button" (click)="onResetFilmForms()" class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Cancel</button>
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">+ Add</button>
+                        <button type="button" (click)="onResetFilmForms()"
+                            class="text-white bg-gray-800 hover:bg-gray-900 focus:outline-none focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-gray-800 dark:hover:bg-gray-700 dark:focus:ring-gray-700 dark:border-gray-700">Cancel</button>
                     </div>
                     <div class="w-full">
 
@@ -184,5 +187,4 @@
             </form>
         </div>
     </div>
-    <button (click)="onResetFilmForms()">Reset Form</button>
 </Section>

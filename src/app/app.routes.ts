@@ -8,6 +8,7 @@ import { AdminDashboardComponent } from './component/admin-dashboard/admin-dashb
 import { AdminManageUsersComponent } from './component/admin-manage-users/admin-manage-users.component';
 import { AdminManageMoviesComponent } from './component/admin-manage-movies/admin-manage-movies.component';
 import { AdminUpdateFilmComponent } from './component/admin-update-film/admin-update-film.component';
+import { AdminAddFilmComponent } from './component/admin-add-film/admin-add-film.component';
 
 export const routes: Routes = [
   { path: '', component: AuthComponent, pathMatch: 'full' },
@@ -21,6 +22,7 @@ export const routes: Routes = [
       { path: 'manage-Users', component: AdminManageUsersComponent },
       { path: 'manage-Films', component: AdminManageMoviesComponent },
       { path: 'manage-Films/info', component: AdminUpdateFilmComponent },
+      { path: 'manage-Films/add', component: AdminAddFilmComponent },
     ]
   },
 ];
