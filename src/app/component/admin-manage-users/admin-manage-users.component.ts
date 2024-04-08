@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import PasswordMatch from '../../utils/passwordMatch';
+import { first } from 'rxjs';
 
 @Component({
   selector: 'app-admin-manage-users',
@@ -55,6 +56,15 @@ export class AdminManageUsersComponent {
     }
 
     console.log(JSON.stringify(this.adminAddUserFrom.value, null, 2));
+  }
+
+  onResetAdduserFrom(){
+    this.adminAddUserFrom.reset({first: 1});
+    this.isAddUserFormSubmitted = false;
+  }
+  onResetUpdateuserFrom(){
+    this.adminUpdateUserForm.reset({first: 1});
+    this.isUpdateUserFormSubmitted = false;
   }
 
   onUserUpdate(): void {
