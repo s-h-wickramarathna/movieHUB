@@ -25,6 +25,7 @@ constructor(private fb: FormBuilder){}
 
 
 addFilmForm: FormGroup = this.fb.group({
+  addFilmActive: ['true'],
   addMovie_img:['', Validators.required],
   addMovie_name:['', [Validators.required]],
   addMovie_desc:['', [Validators.required]],

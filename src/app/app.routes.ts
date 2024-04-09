@@ -9,6 +9,7 @@ import { AdminManageUsersComponent } from './component/admin-manage-users/admin-
 import { AdminManageMoviesComponent } from './component/admin-manage-movies/admin-manage-movies.component';
 import { AdminUpdateFilmComponent } from './component/admin-update-film/admin-update-film.component';
 import { AdminAddFilmComponent } from './component/admin-add-film/admin-add-film.component';
+import { FavoriteComponent } from './component/favorite/favorite.component';
 
 export const routes: Routes = [
   { path: '', component: AuthComponent, pathMatch: 'full' },
@@ -25,4 +26,5 @@ export const routes: Routes = [
       { path: 'manage-Films/add', component: AdminAddFilmComponent },
     ]
   },
+  {path: 'my-favorite', component:FavoriteComponent},
 ];

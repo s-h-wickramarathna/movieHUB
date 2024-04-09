@@ -25,6 +25,7 @@ constructor(private fb: FormBuilder){}
 
 
 updateFilmForm: FormGroup = this.fb.group({
+  updateFilmActive: ['true'],
   updateMovie_img:[''],
   updateMovie_name:['', [Validators.required]],
   updateMovie_desc:['', [Validators.required]],

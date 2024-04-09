@@ -1,5 +1,6 @@
+<app-nav-bar/>
 <section>
-    <div class="w-8/12 sm:w-6/12 md:w-4/12 lg:w-3/12 shadow-xl rounded-r-lg mt-20 h-auto bg-gray-200 duration-1000 -left-full z-50 fixed overflow-auto" id="SidBarMain">
+    <div class="w-8/12 sm:w-6/12 md:w-4/12 lg:w-3/12 shadow-xl rounded-r-lg mt-5 h-auto bg-gray-200 duration-1000 -left-full z-50 fixed overflow-auto" id="SidBarMain">
         <div class="w-full mt-6 p-4">
             <span class="text-lg font-bold">Filter Movies</span>
             <hr class="border-2 border-gray-500 mt-2">
@@ -68,22 +69,17 @@
         </div>
         
     </div>
-    <div class="w-full flex fixed top-0 bg-gray-200 z-50">
-        <div class="ml-5 my-3 w-6/12">
-            <a href="https://flowbite.com/" class="flex items-center space-x-3 rtl:space-x-reverse">
-                <img src="https://flowbite.com/docs/images/logo.svg" class="h-8" alt="Flowbite Logo" />
-                <span class="self-center text-2xl font-semibold whitespace-nowrap text-gray-900">MoviesHUB</span>
-            </a>
-        </div>
-        <div class="w-6/12 flex justify-end pr-5">
-            <i class="bi bi-list text-4xl m-3 -right-14 cursor-pointer" id="menuIconBlock"
+    
+
+    <div class="w-full pt-10 z-20">
+
+        <div class="w-fit flex justify-end bg-blue-900 rounded-3xl text-white fixed top-10 right-10 z-50 shadow-2xl">
+            <i class="bi bi-list text-2xl m-2 -right-14 cursor-pointer" id="menuIconBlock"
                 (click)="sideMenuBlock()"></i>
-            <i class="bi bi-x text-4xl m-3 -right-14 hidden cursor-pointer" id="menuIconHidden"
+            <i class="bi bi-x text-2xl m-2 -right-14 hidden cursor-pointer" id="menuIconHidden"
                 (click)="sideMenuHidden()"></i>
         </div>
-    </div>
 
-    <div class="w-full pt-24 z-20">
         <div class="w-full flex items-baseline">
             <h1 class="text-2xl font-semibold ml-16 mr-5">Most Populer</h1>
 
@@ -161,3 +157,4 @@
 
     </div>
 </section>
+<app-footer/>

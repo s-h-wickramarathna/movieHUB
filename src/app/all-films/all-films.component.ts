@@ -3,6 +3,7 @@ import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NavBarComponent } from '../component/nav-bar/nav-bar.component';
 import { CardsComponent } from '../component/cards/cards.component';
 import { CardSliderComponent } from '../component/card-slider/card-slider.component';
+import { FooterComponent } from '../component/footer/footer.component';
 
 @Component({
   selector: 'app-all-films',
@@ -12,6 +13,7 @@ import { CardSliderComponent } from '../component/card-slider/card-slider.compon
     NavBarComponent,
     CardsComponent,
     CardSliderComponent,
+    FooterComponent,
 
   ],
   templateUrl: './all-films.component.html',

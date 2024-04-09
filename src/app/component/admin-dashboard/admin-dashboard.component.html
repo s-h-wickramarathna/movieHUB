@@ -1,1 +1,93 @@
-<p>admin-dashboard works!</p>
+<section>
+    <div class="w-full">
+        <p class="text-3xl font-semibold mb-10 mx-5">Dashboard</p>
+    </div>
+    <div class="w-full mb-20">
+        <div class="w-full flex flex-wrap justify-center gap-3">
+            <div class="w-72 h-36 bg-yellow-100 flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-gray-800"><i class="bi bi-people-fill text-5xl text-blue-600"></i>&nbsp;&nbsp; All Users</p>
+                    <p class="text-2xl font-semibold mt-3 text-gray-700">200</p>
+                </div>
+            </div>
+            <div class="w-72 h-36 bg-red-100 flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-gray-800"><i class="bi bi-people-fill text-5xl text-blue-600"></i>&nbsp;&nbsp; Active Users</p>
+                    <p class="text-2xl font-semibold mt-3 text-gray-700">200</p>
+                </div>
+            </div>
+            <div class="w-72 h-36 bg-blue-100 flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-gray-800"><i class="bi bi-film text-5xl text-blue-600"></i>&nbsp;&nbsp; All Movies</p>
+                    <p class="text-2xl font-semibold mt-3 text-gray-700">200</p>
+                </div>
+            </div>
+            <div class="w-72 h-36 bg-gray-200 flex justify-center items-center">
+                <div class="text-center">
+                    <p class="text-2xl font-bold text-gray-800"><i class="bi bi-film text-5xl text-blue-600"></i>&nbsp;&nbsp; Active Movies</p>
+                    <p class="text-2xl font-semibold mt-3 text-gray-700">200</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="w-full">
+        <div class="w-full">
+            <p class="text-2xl font-semibold mb-10 mx-5 text-gray-500">Most Liked Movies</p>
+        </div>
+        <!-- table -->
+    <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+        <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+            <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                <thead class="text-xs text-gray-700 uppercase bg-gray-100 dark:bg-gray-700 dark:text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-16 py-3">
+                            <span class="sr-only">Image</span>
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Name
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Duration
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Released
+                        </th>
+                        <th scope="col" class="px-6 py-3">
+                            Status
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr
+                        class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                        <td class="p-4">
+                            <img src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp"
+                                class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                            Fast X
+                        </td>
+
+                        <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                            142 min
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                            2023-05-17
+                        </td>
+                        <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                            <span
+                                class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Blocked</span>
+                            <span
+                                class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Active</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+
+    </div>
+</section>
+
