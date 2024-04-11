@@ -10,6 +10,8 @@ import { AdminManageMoviesComponent } from './component/admin-manage-movies/admi
 import { AdminUpdateFilmComponent } from './component/admin-update-film/admin-update-film.component';
 import { AdminAddFilmComponent } from './component/admin-add-film/admin-add-film.component';
 import { FavoriteComponent } from './component/favorite/favorite.component';
+import { AdminAddUserComponent } from './component/admin-add-user/admin-add-user.component';
+import { AdminUpdateUserComponent } from './component/admin-update-user/admin-update-user.component';
 
 export const routes: Routes = [
   { path: '', component: AuthComponent, pathMatch: 'full' },
@@ -20,10 +22,12 @@ export const routes: Routes = [
     path: 'admin', component: AdminHomeComponent,
     children: [
       { path: 'dashboard', component: AdminDashboardComponent },
-      { path: 'manage-Users', component: AdminManageUsersComponent },
+      { path: 'manage-users', component: AdminManageUsersComponent },
       { path: 'manage-Films', component: AdminManageMoviesComponent },
-      { path: 'manage-Films/info', component: AdminUpdateFilmComponent },
+      { path: 'manage-Films/info/:id', component: AdminUpdateFilmComponent },
       { path: 'manage-Films/add', component: AdminAddFilmComponent },
+      { path: 'manage-users/add', component: AdminAddUserComponent },
+      { path: 'manage-users/info/:id', component: AdminUpdateUserComponent },
     ]
   },
   {path: 'my-favorite', component:FavoriteComponent},

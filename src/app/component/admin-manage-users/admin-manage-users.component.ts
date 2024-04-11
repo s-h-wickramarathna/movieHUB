@@ -1,15 +1,17 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import PasswordMatch from '../../utils/passwordMatch';
 import { first } from 'rxjs';
+import { UserDTO } from './user.dto';
 
 @Component({
   selector: 'app-admin-manage-users',
   standalone: true,
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule,
   ],
   templateUrl: './admin-manage-users.component.html',
   styleUrl: './admin-manage-users.component.css'
@@ -18,6 +20,53 @@ import { first } from 'rxjs';
 export class AdminManageUsersComponent {
   isAddUserFormSubmitted: boolean = false;
   isUpdateUserFormSubmitted: boolean = false;
+  userArray: UserDTO[] = [
+    {
+      id: 0,
+      firstName: 'Sanchitha',
+      lastName: 'Heshan',
+      gender: 'Male',
+      mobile: '0769898172',
+      email: 'sana@gmail.com',
+      status: 'Active',
+    },
+    {
+      id: 0,
+      firstName: 'Sanchitha',
+      lastName: 'Heshan',
+      gender: 'Male',
+      mobile: '0769898172',
+      email: 'sana@gmail.com',
+      status: 'Active',
+    },
+    {
+      id: 0,
+      firstName: 'Sanchitha',
+      lastName: 'Heshan',
+      gender: 'Male',
+      mobile: '0769898172',
+      email: 'sana@gmail.com',
+      status: 'Active',
+    },
+    {
+      id: 0,
+      firstName: 'Sanchitha',
+      lastName: 'Heshan',
+      gender: 'Male',
+      mobile: '0769898172',
+      email: 'sana@gmail.com',
+      status: 'Active',
+    },
+    {
+      id: 0,
+      firstName: 'Sanchitha',
+      lastName: 'Heshan',
+      gender: 'Male',
+      mobile: '0769898172',
+      email: 'sana@gmail.com',
+      status: 'Active',
+    },
+  ]
 
   constructor(private fb: FormBuilder) { }
 
@@ -58,12 +107,12 @@ export class AdminManageUsersComponent {
     console.log(JSON.stringify(this.adminAddUserFrom.value, null, 2));
   }
 
-  onResetAdduserFrom(){
-    this.adminAddUserFrom.reset({first: 1});
+  onResetAdduserFrom() {
+    this.adminAddUserFrom.reset({ first: 1 });
     this.isAddUserFormSubmitted = false;
   }
-  onResetUpdateuserFrom(){
-    this.adminUpdateUserForm.reset({first: 1});
+  onResetUpdateuserFrom() {
+    this.adminUpdateUserForm.reset({ first: 1 });
     this.isUpdateUserFormSubmitted = false;
   }
 

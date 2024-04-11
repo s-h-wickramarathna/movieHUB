@@ -1,0 +1,101 @@
+<section>
+    <div class="w-full flex justify-center">
+<div class="w-8/12 shadow-xl mt-5 bg-zinc-100">
+    <div class="p-4 md:p-5">
+        <div class="w-full text-center pb-10">
+            <p class="text-gray-900 font-semibold text-2xl"> Update User</p>
+        </div>
+        
+        <form [formGroup]="adminUpdateUserForm" (ngSubmit)="onUserUpdate()">
+            <div class="flex-grow flex justify-end">
+                <label class="inline-flex items-center mb-5 cursor-pointer">
+                    <input formControlName="UpdateUserActive" type="checkbox" class="sr-only peer">
+                    <div
+                        class="relative w-9 h-5 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-4 after:w-4 after:transition-all dark:border-gray-600 peer-checked:bg-blue-600">
+                    </div>
+                </label>
+            </div>
+            <div class="grid gap-6 mb-6 md:grid-cols-2">
+                
+                <div>
+                    <label for="first_name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">First
+                        name</label>
+                    <input type="text"
+                        formControlName="UpdateUser_firstName"
+                        [ngClass]="{'border-red-600':isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_firstName'].errors}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="John" required />
+                        @if(isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_firstName'].errors){
+                            @if (UpdateUserFromValidate['UpdateUser_firstName'].errors['required']) {
+                            <small class="ml-3 text-red-600">User First Name Is Required </small>
+                            }
+                            }
+                </div>
+                <div>
+                    <label for="last_name"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Last
+                        name</label>
+                    <input type="text"
+                    formControlName="UpdateUser_lastName"
+                        [ngClass]="{'border-red-600':isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_lastName'].errors}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="Doe" required />
+                        @if(isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_lastName'].errors){
+                            @if (UpdateUserFromValidate['UpdateUser_lastName'].errors['required']) {
+                            <small class="ml-3 text-red-600">User Last Name Is Required </small>
+                            }
+                            }
+                </div>
+                <div>
+                    <label for="Gender"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Gender</label>
+                    <select id="category"
+                    formControlName="UpdateUser_Gender"
+                        [ngClass]="{'border-red-600':isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_Gender'].errors}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500">
+                        <option value="" selected>Select Gender</option>
+                        <option value="Male">Male</option>
+                        <option value="Female">Female</option>
+                    </select>
+                    @if(isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_Gender'].errors){
+                        @if (UpdateUserFromValidate['UpdateUser_Gender'].errors['required']) {
+                        <small class="ml-3 text-red-600">User Gender Is Required </small>
+                        }
+                        }
+                </div>
+                <div>
+                    <label for="phone"
+                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Phone
+                        number</label>
+                    <input type="tel"
+                    formControlName="UpdateUser_mobile"
+                        [ngClass]="{'border-red-600':isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_mobile'].errors}"
+                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                        placeholder="07########" pattern="07[2467][0-9]{7}"
+                        required />
+                        @if(isUpdateUserFormSubmitted && UpdateUserFromValidate['UpdateUser_mobile'].errors){
+                            @if (UpdateUserFromValidate['UpdateUser_mobile'].errors['required']) {
+                            <small class="ml-3 text-red-600">User Mobile Is Required </small>
+                            }
+                            }
+                </div>
+            </div>
+            <div class="mb-6">
+                <label for="email"
+                    class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Email
+                    address</label>
+                <input type="email"
+                formControlName="UpdateUser_email"
+                    class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                    placeholder="john.doe@company.com" readonly/>
+            </div>
+            <div class="w-full flex justify-end">
+                <button type="submit"
+                    class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+</section>

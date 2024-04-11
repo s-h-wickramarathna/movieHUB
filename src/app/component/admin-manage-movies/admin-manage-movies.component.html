@@ -50,31 +50,31 @@
                         </th>
                     </tr>
                 </thead>
-                <tbody>
+                <tbody *ngFor="let movie of moviesArray">
                     <tr
                         class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
                         <td class="p-4">
-                            <img src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp"
+                            <img [src]="movie.img"
                                 class="w-16 md:w-32 max-w-full max-h-full" alt="Apple Watch">
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            Fast X
+                            {{movie.name}}
                         </td>
 
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            142 min
+                            {{movie.duration}}
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            2023-05-17
+                            {{movie.Released}}
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            <span
+                            <span *ngIf="movie.status === 'Blocked' "
                                 class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Blocked</span>
-                            <span
+                            <span *ngIf="movie.status === 'Active' "
                                 class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Active</span>
                         </td>
                         <td class="px-6 py-4">
-                            <a href="admin/manage-Films/info" class="font-medium text-blue-600 dark:text-red-500 hover:underline"
+                            <a href="admin/manage-Films/info/{{movie.id}}" class="font-medium text-blue-600 dark:text-red-500 hover:underline"
                                 data-modal-target="crud-modal" data-modal-toggle="crud-modal">More Info</a>
                             <a href="#"
                                 class="font-medium text-red-600 dark:text-red-500 hover:underline ms-5">Remove</a>
