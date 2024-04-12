@@ -16,7 +16,7 @@ import { AdminUpdateUserComponent } from './component/admin-update-user/admin-up
 export const routes: Routes = [
   { path: '', component: AuthComponent, pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'watch-film', component: WatchFilmComponent },
+  { path: 'watch-film/:id', component: WatchFilmComponent },
   { path: 'films', component: AllFilmsComponent },
   {
     path: 'admin', component: AdminHomeComponent,

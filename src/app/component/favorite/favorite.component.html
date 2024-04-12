@@ -5,24 +5,10 @@
         <p class="text-2xl font-semibold text-gray-800 ml-5">My Favorite Movies</p>
     </div>
     <div class="w-full flex flex-wrap gap-5 ">
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
-           <app-favorite-card Width="w-52" Height="300" />
+        <ng-container *ngFor="let movie of movieArray">
+            <app-favorite-card Width="w-52" Height="300" [id]="movie.id" [name]="movie.name" [img]="movie.img"/>
+          </ng-container> 
+
+
     </div>
 </section>

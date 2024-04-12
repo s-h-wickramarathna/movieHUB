@@ -1,20 +1,20 @@
 <div class="{{Width}} overflow-hidden my-2 relative z-20">
-    <a href="watch-film" class="w-full h-auto overflow-hidden block relative">
+    <a href="./watch-film/{{id}}" class="w-full h-auto overflow-hidden block relative">
       <div class="w-full opacity-0 hover:opacity-100 duration-300 absolute top-0 left-0" [style.height.px]="Height">
         <!-- Opacity div -->
         <div class="inset-0 bg-black opacity-50 absolute"></div>
         <!-- Icon -->
         <i class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bi bi-play-circle-fill text-white text-6xl"></i>
       </div>
-      <img class="w-full" src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp" />
+      <img class="w-full" [src]="img" />
     </a>
     <div class="w-full">
       <div class="w-full">
-        <p class="font-bold">Fast X: Part I</p>
+        <p class="font-bold">{{name}}</p>
       </div>
       <div class="w-full mt-1 flex">
         <span class="bg-gray-100 text-gray-800 text-xs font-bold me-2 px-2.5 py-0.5 rounded border-gray-500">HD</span>
-        <p class="text-gray-600 text-sm ml-2">2024</p>
+        <p class="text-gray-600 text-sm ml-2">{{date}}</p>
       </div>
     </div>
   </div>

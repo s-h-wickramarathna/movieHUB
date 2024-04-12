@@ -100,18 +100,10 @@
         <div class="w-full flex justify-center items-center" id="mainPanel">
             <div class="w-full mx-10 overflow-hidden">
                 <app-card-slider>
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
-                    <app-cards />
+                    <div  *ngFor="let popularMovie of popularMoviesArray">
+                        <app-cards [id]="popularMovie.id" [img]="popularMovie.img" [name]="popularMovie.name" [date]="popularMovie.date"/>
+                    </div>
+                    
                 </app-card-slider>
             </div>
         </div>
@@ -138,23 +130,10 @@
         </div>
 
         <div class="w-full flex flex-wrap gap-3 justify-center mt-16">
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" />
-            <app-cards Width="w-52" Height="300" /> 
-
-            
+            <ng-container *ngFor="let movie of allMoviesArray">
+                <app-cards Width="w-52" Height="300" [id]="movie.id" [name]="movie.name" [img]="movie.img" [date]="movie.date"/> 
+              </ng-container>      
         </div>
-
-
     </div>
 </section>
 <app-footer/>

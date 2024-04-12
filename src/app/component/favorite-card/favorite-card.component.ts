@@ -10,4 +10,12 @@ import { Component, Input } from '@angular/core';
 export class FavoriteCardComponent {
   @Input() Width: string = "w-64";
   @Input() Height: string= "365";
+  @Input() id: number | undefined;
+  @Input() name: string | undefined;
+  @Input() img: string | undefined;
+
+  onRemoveMovie(id: number | undefined){
+    alert(id);
+  }
+
 }

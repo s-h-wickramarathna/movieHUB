@@ -4,6 +4,8 @@ import { NavBarComponent } from '../component/nav-bar/nav-bar.component';
 import { CardsComponent } from '../component/cards/cards.component';
 import { CardSliderComponent } from '../component/card-slider/card-slider.component';
 import { FooterComponent } from '../component/footer/footer.component';
+import { AllMoviesDTO } from './AllMovies.dto';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-all-films',
@@ -14,12 +16,224 @@ import { FooterComponent } from '../component/footer/footer.component';
     CardsComponent,
     CardSliderComponent,
     FooterComponent,
+    FormsModule,
 
   ],
   templateUrl: './all-films.component.html',
   styleUrl: './all-films.component.css'
 })
 export class AllFilmsComponent {
+
+  popularMoviesArray: AllMoviesDTO[] = [
+    {
+      id: 0,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 1,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 3,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 4,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+  ]
+
+  allMoviesArray: AllMoviesDTO[] = [
+    {
+      id: 0,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 1,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 3,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 4,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+    {
+      id: 2,
+    img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp',
+    name: 'Fast X',
+    date: '2023-05-17',
+    },
+  ]
+
   constructor(private elementRef: ElementRef) { }
 
   sideMenuHidden() {
@@ -58,6 +272,8 @@ export class AllFilmsComponent {
 
     }
   }
+
+
 
 
 }

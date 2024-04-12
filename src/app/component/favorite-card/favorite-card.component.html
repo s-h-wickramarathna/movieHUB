@@ -1,19 +1,19 @@
 <div class="{{Width}} overflow-hidden my-2 relative z-20">
-    <a href="watch-film" class="w-full h-auto overflow-hidden block relative">
+    <a href="./watch-film/{{id}}" class="w-full h-auto overflow-hidden block relative">
       <div class="w-full opacity-0 hover:opacity-100 duration-300 absolute top-0 left-0" [style.height.px]="Height">
         <!-- Opacity div -->
         <div class="inset-0 bg-black opacity-50 absolute"></div>
         <!-- Icon -->
         <i class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bi bi-play-circle-fill text-white text-6xl"></i>
       </div>
-      <img class="w-full" src="https://images.justwatch.com/poster/305436330/s166/fast-x.webp" />
+      <img class="w-full" [src]="img" />
     </a>
     <div class="w-full">
       <div class="w-full">
-        <p class="font-bold">Fast X: Part I</p>
+        <p class="font-bold">{{name}}</p>
       </div>
       <div class="w-full mt-1 flex">
-        <button type="button" class="text-red-700 w-full hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900">Remove</button>
+        <button type="button" class="text-red-700 w-full hover:text-white border border-red-700 hover:bg-red-800 focus:ring-4 focus:outline-none focus:ring-red-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2 dark:border-red-500 dark:text-red-500 dark:hover:text-white dark:hover:bg-red-600 dark:focus:ring-red-900" (click)="onRemoveMovie(id)">Remove</button>
       </div>
       
     </div>
