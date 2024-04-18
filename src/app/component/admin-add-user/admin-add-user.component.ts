@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import PasswordMatch from '../../utils/passwordMatch';
 import { CommonModule } from '@angular/common';
+import { AdminAddUserService } from './admin-add-user.service';
 
 @Component({
   selector: 'app-admin-add-user',
@@ -16,7 +17,10 @@ import { CommonModule } from '@angular/common';
 export class AdminAddUserComponent {
   isAddUserFormSubmitted: boolean = false;
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private adminAddUserService: AdminAddUserService
+  ) { }
 
   adminAddUserFrom: FormGroup = this.fb.group({
     newUser_firstName: ['', [Validators.required]],
