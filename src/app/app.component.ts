@@ -8,6 +8,7 @@ import { HomeComponent } from './home/home.component';
 import { CardsComponent } from './component/cards/cards.component';
 import { FooterComponent } from './component/footer/footer.component';
 import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',

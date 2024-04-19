@@ -12,7 +12,8 @@
                 </div>
                 <input type="text" id="simple-search"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search branch name..." required />
+                    placeholder="Search User By Email Or Mobile Number..." 
+                    (change)="onSearchUser($event)" />
             </div>
 
         </div>
@@ -55,7 +56,7 @@
                         {{user.firstName+' '+user.lastName}}
                     </th>
                     <td class="px-6 py-4">
-                        {{user.gender}}
+                        {{user.gender_id == 1 ? 'Male': 'Female'}}
                     </td>
                     <td class="px-6 py-4">
                         {{user.mobile}}
@@ -64,9 +65,9 @@
                         {{user.email}}
                     </td>
                     <td class="px-6 py-4">
-                        <span *ngIf="user.status == 'Blocked' "
+                        <span *ngIf="user.status_id == 2 "
                             class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Blocked</span>
-                        <span *ngIf="user.status == 'Active' "
+                        <span *ngIf="user.status_id == 1 "
                             class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Active</span>
                     </td>
                     <td class="px-6 py-4">

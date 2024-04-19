@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import PasswordMatch from '../../utils/passwordMatch';
 import { CommonModule } from '@angular/common';
 import { AdminAddUserService } from './admin-add-user.service';
+import { finalize } from 'rxjs';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-admin-add-user',
@@ -16,11 +18,13 @@ import { AdminAddUserService } from './admin-add-user.service';
 })
 export class AdminAddUserComponent {
   isAddUserFormSubmitted: boolean = false;
+  @ViewChild('alertBorder') alertElementRef!: ElementRef;
 
   constructor(
     private fb: FormBuilder,
     private adminAddUserService: AdminAddUserService
   ) { }
+
 
   adminAddUserFrom: FormGroup = this.fb.group({
     newUser_firstName: ['', [Validators.required]],
@@ -45,7 +49,44 @@ export class AdminAddUserComponent {
       return;
     }
 
-    console.log(JSON.stringify(this.adminAddUserFrom.value, null, 2));
+    const firstName = this.adminAddUserFrom.get('newUser_firstName');
+    const lastName = this.adminAddUserFrom.get('newUser_lastName');
+    const mobile = this.adminAddUserFrom.get('newUser_mobile');
+    const email = this.adminAddUserFrom.get('newUser_Email');
+    const password = this.adminAddUserFrom.get('newUser_password');
+    const gender = this.adminAddUserFrom.get('newUser_Gender');
+
+    const gender_id = gender?.value=='Male'? '1' : '2';
+
+    const user = {
+      firstName: firstName ? firstName.value : '',
+      lastName: lastName? lastName.value : '',
+      mobile: mobile? mobile.value : '',
+      email: email? email.value : '',
+      password: password? password.value : '',
+      gender_id: gender_id? gender_id : '',
+      role_id: '2',
+      status_id: '1',
+    };
+
+
+    this.adminAddUserService.createMessage(user).subscribe(
+      (response: any) => {
+        if(response){
+          const alert = this.alertElementRef.nativeElement;
+          alert.classList.remove('hidden');
+          alert.classList.add('block','flex');
+          setTimeout(() => {
+            window.location.reload(); 
+          }, 2000);
+          
+        }
+      },
+      (error: any) => {
+        console.error('Error sending message:', error);
+        // Error handling
+      }
+    );
   }
 
   onResetAdduserFrom() {

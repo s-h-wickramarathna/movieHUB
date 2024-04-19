@@ -4,6 +4,7 @@ import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } 
 import PasswordMatch from '../../utils/passwordMatch';
 import { first } from 'rxjs';
 import { UserDTO } from './user.dto';
+import { AdminManageUserService } from './admin-manage-users.service';
 
 @Component({
   selector: 'app-admin-manage-users',
@@ -18,112 +19,46 @@ import { UserDTO } from './user.dto';
 })
 
 export class AdminManageUsersComponent {
+
   isAddUserFormSubmitted: boolean = false;
   isUpdateUserFormSubmitted: boolean = false;
-  userArray: UserDTO[] = [
-    {
-      id: 0,
-      firstName: 'Sanchitha',
-      lastName: 'Heshan',
-      gender: 'Male',
-      mobile: '0769898172',
-      email: 'sana@gmail.com',
-      status: 'Active',
-    },
-    {
-      id: 0,
-      firstName: 'Sanchitha',
-      lastName: 'Heshan',
-      gender: 'Male',
-      mobile: '0769898172',
-      email: 'sana@gmail.com',
-      status: 'Active',
-    },
-    {
-      id: 0,
-      firstName: 'Sanchitha',
-      lastName: 'Heshan',
-      gender: 'Male',
-      mobile: '0769898172',
-      email: 'sana@gmail.com',
-      status: 'Active',
-    },
-    {
-      id: 0,
-      firstName: 'Sanchitha',
-      lastName: 'Heshan',
-      gender: 'Male',
-      mobile: '0769898172',
-      email: 'sana@gmail.com',
-      status: 'Active',
-    },
-    {
-      id: 0,
-      firstName: 'Sanchitha',
-      lastName: 'Heshan',
-      gender: 'Male',
-      mobile: '0769898172',
-      email: 'sana@gmail.com',
-      status: 'Active',
-    },
-  ]
+  userArray: UserDTO[] = []
+  searchText: string = '';
 
-  constructor(private fb: FormBuilder) { }
+  constructor(
+    private fb: FormBuilder,
+    private readonly adminManageUserService: AdminManageUserService
+  ) { }
 
-  adminAddUserFrom: FormGroup = this.fb.group({
-    newUser_firstName: ['', [Validators.required]],
-    newUser_lastName: ['', [Validators.required]],
-    newUser_Gender: ['', [Validators.required]],
-    newUser_mobile: ['', [Validators.required, Validators.pattern('07[2467][0-9]{7}')]],
-    newUser_Email: ['', [Validators.required, Validators.email]],
-    newUser_password: ['', [Validators.required]],
-    newUser_confirmPassword: ['', [Validators.required]],
-  }, {
-    validators: [PasswordMatch.match('newUser_password', 'newUser_confirmPassword')],
-  })
+  ngOnInit() {
 
-  adminUpdateUserForm: FormGroup = this.fb.group({
-    UpdateUser_firstName: ['', [Validators.required]],
-    UpdateUser_lastName: ['', [Validators.required]],
-    UpdateUser_Gender: ['', [Validators.required]],
-    UpdateUser_mobile: ['', [Validators.required]],
-  })
+    this.adminManageUserService.getUser().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.userArray = response;
+        // Additional handling if needed
+      },
+      (error: any) => {
+        console.error('Error sending message:', error);
+        // Error handling
+      }
+    );
 
-  get addUserFromValidate() {
-    return this.adminAddUserFrom.controls;
   }
 
-  get UpdateUserFromValidate() {
-    return this.adminUpdateUserForm.controls;
-  }
-
-  onUserAdd(): void {
-    this.isAddUserFormSubmitted = true;
-
-    if (this.adminAddUserFrom.invalid) {
-      return;
-    }
-
-    console.log(JSON.stringify(this.adminAddUserFrom.value, null, 2));
-  }
-
-  onResetAdduserFrom() {
-    this.adminAddUserFrom.reset({ first: 1 });
-    this.isAddUserFormSubmitted = false;
-  }
-  onResetUpdateuserFrom() {
-    this.adminUpdateUserForm.reset({ first: 1 });
-    this.isUpdateUserFormSubmitted = false;
-  }
-
-  onUserUpdate(): void {
-    this.isUpdateUserFormSubmitted = true;
-
-    if (this.adminUpdateUserForm.invalid) {
-      return;
-    }
-
-    console.log(JSON.stringify(this.adminUpdateUserForm.value, null, 2));
+  onSearchUser(event: Event) {
+    // Get the new input value
+    const value = (event.target as HTMLInputElement).value;
+    this.adminManageUserService.getUserByValue(value).subscribe(
+      (response: any) => {
+        if (response) {
+          console.log(response);
+          this.userArray = response;
+        }
+      },
+      (error: any) => {
+        throw new Error(error);
+      });
   }
 
 }
