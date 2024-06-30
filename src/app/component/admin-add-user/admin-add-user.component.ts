@@ -70,7 +70,7 @@ export class AdminAddUserComponent {
     };
 
 
-    this.adminAddUserService.createMessage(user).subscribe(
+    this.adminAddUserService.createUser(user).subscribe(
       (response: any) => {
         if(response){
           const alert = this.alertElementRef.nativeElement;
