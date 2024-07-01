@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import PasswordMatch from '../../utils/passwordMatch';
 import { first } from 'rxjs';
@@ -18,10 +18,8 @@ import { AdminManageUserService } from './admin-manage-users.service';
   styleUrl: './admin-manage-users.component.css'
 })
 
-export class AdminManageUsersComponent {
+export class AdminManageUsersComponent implements OnInit{
 
-  isAddUserFormSubmitted: boolean = false;
-  isUpdateUserFormSubmitted: boolean = false;
   userArray: UserDTO[] = []
   searchText: string = '';
 
@@ -54,7 +52,7 @@ export class AdminManageUsersComponent {
         if (response) {
           console.log(response);
           this.userArray = response;
-        }
+        } 
       },
       (error: any) => {
         throw new Error(error);

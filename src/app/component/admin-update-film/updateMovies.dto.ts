@@ -4,7 +4,7 @@ export interface UpdateMoviesDTO{
     name: string,
     duration: string,
     Released: string,
-    status: string,
+    status_id: number,
     description: string,
     countries: string,
     genre: string,

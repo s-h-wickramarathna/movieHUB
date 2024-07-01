@@ -12,7 +12,7 @@
                 </div>
                 <input type="text" id="simple-search"
                     class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Search branch name..." required />
+                    placeholder="Search By Movie Name..." (change)="onSearchMovies($event)"  required />
             </div>
 
         </div>
@@ -65,19 +65,17 @@
                             {{movie.duration}}
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            {{movie.Released}}
+                            {{movie.released.slice(0, 10)}}
                         </td>
                         <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
-                            <span *ngIf="movie.status === 'Blocked' "
+                            <span *ngIf="movie.status_id === 2 "
                                 class="bg-red-100 text-red-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Blocked</span>
-                            <span *ngIf="movie.status === 'Active' "
+                            <span *ngIf="movie.status_id === 1 "
                                 class="bg-green-100 text-green-800 text-xs font-medium me-2 px-2.5 py-0.5 rounded dark:bg-green-900 dark:text-green-300">Active</span>
                         </td>
                         <td class="px-6 py-4">
                             <a href="admin/manage-Films/info/{{movie.id}}" class="font-medium text-blue-600 dark:text-red-500 hover:underline"
-                                data-modal-target="crud-modal" data-modal-toggle="crud-modal">More Info</a>
-                            <a href="#"
-                                class="font-medium text-red-600 dark:text-red-500 hover:underline ms-5">Remove</a>
+                                data-modal-target="crud-modal" data-modal-toggle="crud-modal">Edit</a>
                         </td>
                     </tr>
                 </tbody>

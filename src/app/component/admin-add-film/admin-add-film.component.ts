@@ -2,7 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { first } from 'rxjs';
-import { AdminAddFilmComponentService } from './admin-add-film.component.service';
+import { AdminAddFilmComponentService } from './admin-add-film.service';
 
 @Component({
   selector: 'app-admin-add-film',

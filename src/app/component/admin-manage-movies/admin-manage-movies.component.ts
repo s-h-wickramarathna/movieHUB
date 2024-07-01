@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { MoviesDTO } from './movies.dto';
+import { AdminManageMoviesService } from './admin-manage-movies.service';
 
 @Component({
   selector: 'app-admin-manage-movies',
@@ -11,16 +12,44 @@ import { MoviesDTO } from './movies.dto';
   templateUrl: './admin-manage-movies.component.html',
   styleUrl: './admin-manage-movies.component.css'
 })
-export class AdminManageMoviesComponent {
+export class AdminManageMoviesComponent implements OnInit{
 
-  moviesArray: MoviesDTO[] = [
-    
-    {id: 1, img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp', name: 'Fast X1', duration: '142 min', Released: '2023-05-17', status: 'Active', description: '', countries: '', genre: '', cast: '', production: ''},
-    {id: 2, img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp', name: 'Fast X1', duration: '142 min', Released: '2023-05-17', status: 'Active', description: '', countries: '', genre: '', cast: '', production: ''},
-    {id: 3, img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp', name: 'Fast X2', duration: '142 min', Released: '2023-05-17', status: 'Active', description: '', countries: '', genre: '', cast: '', production: ''},
-    {id: 4, img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp', name: 'Fast X3', duration: '142 min', Released: '2023-05-17', status: 'Active', description: '', countries: '', genre: '', cast: '', production: ''},
-    {id: 5, img: 'https://images.justwatch.com/poster/305436330/s166/fast-x.webp', name: 'Fast X4', duration: '142 min', Released: '2023-05-17', status: 'Active', description: '', countries: '', genre: '', cast: '', production: ''},
-  
-  ]
+  moviesArray: MoviesDTO[] = [];
+  searchText: string = '';
+
+  constructor(
+    private readonly adminManageMoviesService: AdminManageMoviesService
+  ) { }
+
+  ngOnInit() {
+
+    this.adminManageMoviesService.getAllMovies().subscribe(
+      (response: any) => {
+        console.log(response);
+        this.moviesArray = response;
+        // Additional handling if needed
+      },
+      (error: any) => {
+        console.error('Error sending message:', error);
+        // Error handling
+      }
+    );
+
+  }
+
+  onSearchMovies(event: Event) {
+    // Get the new input value
+    const value = (event.target as HTMLInputElement).value;
+    this.adminManageMoviesService.getMovieByValue(value).subscribe(
+      (response: any) => {
+        if (response) {
+          console.log(response);
+          this.moviesArray = response;
+        } 
+      },
+      (error: any) => {
+        throw new Error(error);
+      });
+  }
 
 }
